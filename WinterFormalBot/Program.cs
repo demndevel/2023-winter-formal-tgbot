@@ -21,7 +21,7 @@ builder.Services.AddHangfire(configuration => configuration.UseSQLiteStorage("Da
 using var host = builder.Build();
 
 var botClient = new TelegramBotClient(token);
-var botRouter = new BotRouter(host.Services);
+var botRouter = new BotRouter(host.Services, botClient);
 var receiverOptions = new ReceiverOptions
 {
     AllowedUpdates = Array.Empty<UpdateType>()
